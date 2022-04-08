@@ -1,0 +1,40 @@
+.card {
+    background: #fff;
+    border: solid #b7b7b7 2px;
+    border-radius: 3px;
+    padding: 7px 24px;
+}
+
+.headers, .content-row {
+    display: inline-grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    width: 100%;
+    p {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+}
+
+.headers {
+    color: #282828;
+}
+
+.content-row { 
+    cursor: pointer;
+    color: #233239;
+}
+
+.content-row:hover {
+    background: #f8f8f8;
+}
+
+.row-line {
+    border-top: 1px solid #f0f2f3;
+}
+
+.header-title {
+    font-size: .9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #5e5e5e;
+}
