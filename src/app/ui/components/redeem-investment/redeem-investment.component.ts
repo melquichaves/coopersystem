@@ -16,12 +16,10 @@ import { RedeemDialogComponent } from '../redeem-dialog/redeem-dialog.component'
 export class RedeemInvestmentComponent implements OnInit {
   @Input() investment: Investment;
   public redeemValues = new FormArray([]);
-  public totalValue: number = 0;
   
   constructor(
     private router: Router,
-    private dialog: MatDialog,
-    private investmentService: InvestmentService
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -53,12 +51,6 @@ export class RedeemInvestmentComponent implements OnInit {
     return this.redeemValues.controls[index] as FormControl
   }
 
-  public setTotalRedeemValue(): void {
-    this.redeemValues.controls.forEach(control => {
-      this.totalValue += control.value
-    });
-  }
-
   public goToInvestment(): void {
     this.router.navigate(['/']);
   }
@@ -71,6 +63,14 @@ export class RedeemInvestmentComponent implements OnInit {
         data: { stocks: this.getInvalidStocks() },
       });
     }
+  }
+  
+  public getTotalRedeemValue(): number {
+    let total = 0;
+    this.redeemValues.controls.forEach(control => {
+      total += control.value
+    });
+    return total;
   }
 
   public getInvalidStocks(): Array<Stock> {
