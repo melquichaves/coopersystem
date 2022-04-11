@@ -66,8 +66,6 @@ export class RedeemInvestmentComponent implements OnInit {
   public redeem(): void {
     if (this.redeemValues.valid) {
       this.dialog.open(RedeemDialogComponent);
-      this.removeRedeemValueFromStock();
-      this.removeTotalRedeemValue();
     } else {
       this.dialog.open(RedeemDialogComponent, {
         data: { stocks: this.getInvalidStocks() },
@@ -87,19 +85,4 @@ export class RedeemInvestmentComponent implements OnInit {
     return invalidStocks;
   }
 
-  public removeTotalRedeemValue(): void {
-    this.investment.setSaldoTotal(this.investment.getSaldoTotal() - this.totalValue);
-    this.investmentService.setSelectedInvestmentTotalValue(this.investment.getSaldoTotal() - this.totalValue)
-  }
-
-  public removeRedeemValueFromStock(): void {
-    for (let i = 0; i < this.redeemValues.controls.length; i++) {
-      if (this.redeemValues.controls[i].valid) {
-        this.investment.getAcoes()[i].setCalculatedValue(
-          this.investment.getAcoes()[i].getCalculatedValue() - this.redeemValues.controls[i].value
-        );
-      }
-      this.redeemValues.controls[i].setValue(0);
-    }
-  }
 }
