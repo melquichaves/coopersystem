@@ -1,7 +1,8 @@
 export class Stock {
-    private id : string;
-    private nome : string;
-    private percentual : number;
+    private id: string;
+    private nome: string;
+    private percentual: number;
+    private calculatedMaxValue: number;
 
     public getId(): string {
         return this.id;
@@ -25,5 +26,18 @@ export class Stock {
 
     public setPercentual(percentual: number): void {
         this.percentual = percentual;
-    }   
+    }
+
+    public setCalculatedMaxValue(value: number): void {
+        this.calculatedMaxValue = value * (this.percentual / 100);
+    }
+
+    public getCalculatedValue(): number {
+        return this.calculatedMaxValue;
+    }
+
+    public setCalculatedValue(value: number): number {
+        return this.calculatedMaxValue = value;
+    }
+
 }

@@ -19,9 +19,9 @@ export class InvestmentListParser extends AbstractParser<Investment>{
             return investment;
 
         investment.setNome(payload.nome);
-        investment.setObjetivo(payload.id);
+        investment.setObjetivo(payload.objetivo);
         investment.setSaldoTotal(payload.saldoTotal);
-        investment.setIndicadorCarencia(payload.ativo);
+        investment.setIndicadorCarencia(payload.indicadorCarencia);
         investment.setAcoes(this.stockListParser.parseList(payload.acoes));
 
         return investment;   

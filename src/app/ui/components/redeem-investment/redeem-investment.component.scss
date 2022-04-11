@@ -3,6 +3,7 @@
     border: solid #b7b7b7 2px;
     border-radius: 3px;
     padding: 7px 24px;
+    margin-bottom: 15px;
 }
 
 .headers, .content-row {
@@ -25,18 +26,21 @@
 }
 
 .content-row { 
-    cursor: pointer;
     color: #233239;
-}
-
-.content-row:hover {
-    background: #f8f8f8;
+    .input-holder {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+    input {
+        height: 20px;
+        width: 50%;
+    }
 }
 
 .disabled {
     color: #9ca3a5;
     width: 100%;
-    cursor: default!important;
 }
 
 .row-line {
@@ -48,4 +52,38 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #5e5e5e;
+}
+
+.field-error {
+    color: red;
+    display: block;
+    margin: 0px!important;
+    padding: 3px;
+}
+
+.total-redeem-value {
+    display: flex;
+    align-self: center;
+    p {
+        margin: 0;
+        line-height: 25px;
+    }
+}
+
+.buttons-holder {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-left: 15px;
+    }
+}
+
+.redeem-btn {
+    background-color: #007AD3;
+    color: #fff;
+}
+
+.cancel-btn {
+    background-color: #A5A6A7;
+    color: #fff;
 }

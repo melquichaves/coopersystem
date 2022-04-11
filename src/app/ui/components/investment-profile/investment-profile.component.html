@@ -1,0 +1,29 @@
+<div class="card" *ngIf="this.investmentService.getSelectedInvestment()">
+    <div class="item-holder">
+        <div class="content">
+            <mat-icon aria-hidden="false">person</mat-icon>
+            <div class="title-container">
+                <p class="title">Nome</p>
+                <p class="subtitle">{{ this.investmentService.getSelectedInvestment().getNome() }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="item-holder border-tick">
+        <div class="content">
+            <mat-icon aria-hidden="false">show_chart</mat-icon>
+            <div class="title-container">
+                <p class="title">Objetivo</p>
+                <p class="subtitle">{{ this.investmentService.getSelectedInvestment().getObjetivo() }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="item-holder border-tick">
+        <div class="content">
+            <mat-icon aria-hidden="false">monetization_on</mat-icon>
+            <div class="title-container">
+                <p class="title">Saldo Total</p>
+                <p class="subtitle">{{ this.investmentService.getSelectedInvestment().getSaldoTotal() | currency:'R$':'symbol':'1.2-2' }}</p>
+            </div>
+        </div>
+    </div>
+</div>

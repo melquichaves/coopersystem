@@ -19,8 +19,7 @@ export class InvestmentsDataParser extends AbstractParser<ResponseData>{
             return responseData;
 
         responseData.setStatus(payload.status);
-        responseData.setData(payload.data);
-        responseData.setListaInvestimentos(this.investmentListParser.parseList(payload.listaInvestimentos));
+        responseData.setData(this.investmentListParser.parseList(payload.data.listaInvestimentos));
 
         return responseData;   
     }

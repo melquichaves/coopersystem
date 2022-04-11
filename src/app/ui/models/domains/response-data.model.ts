@@ -2,8 +2,7 @@ import { Investment } from "./investment.model";
 
 export class ResponseData {
     private status: string;
-    private data: string;
-    private listaInvestimentos: Array<Investment>;
+    private data: Array<Investment>;
 
     public getStatus(): string {
         return this.status;
@@ -13,20 +12,12 @@ export class ResponseData {
         this.status = status;
     }
 
-    public getData(): string {
+    public getData(): Array<Investment> {
         return this.data;
     }
 
-    public setData(data: string): void {
+    public setData(data: Array<Investment>): void {
         this.data = data;
-    }
-
-    public getListaInvestimentos(): Array<Investment> {
-        return this.listaInvestimentos;
-    }
-
-    public setListaInvestimentos(listaInvestimentos: Array<Investment>): void {
-        this.listaInvestimentos = listaInvestimentos;
     }
 
 }

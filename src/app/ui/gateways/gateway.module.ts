@@ -11,7 +11,9 @@ export class GatewayModule {
     static forRoot(): ModuleWithProviders<GatewayModule> {
       return {
         ngModule: GatewayModule,
-        providers: [RemoteGatewayFactory]
+        providers: [
+          RemoteGatewayFactory
+        ]
       };
     }
   }

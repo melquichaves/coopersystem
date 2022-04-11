@@ -47,5 +47,9 @@ export class Investment {
         this.acoes = acoes;
     }
 
+    public isCarencia(): boolean {
+        return this.indicadorCarencia === 'N';
+    }
+
 
 }

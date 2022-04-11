@@ -1,0 +1,36 @@
+<div class="card" *ngIf="investment">
+    <div class="headers header-title">
+        <p>Ação</p>
+        <p>Saldo Acumulado</p>
+        <p>Valor a Resgatar</p>
+    </div>
+    
+    <form >
+        <div *ngFor="let acao of investment.getAcoes(); index as i" class="content-row row-line">
+            <div *ngIf="investment.getSaldoTotal() > 0">
+                <p>{{ acao.getNome() }}</p>
+                <p>{{ acao.getCalculatedValue() | currency:'R$':'symbol':'1.2-2' }}</p>
+                <div class="input-holder">
+                    <input type="text" 
+                        currencyMask 
+                        [formControl]="getControl(i)"
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"                
+                    />
+                    <p class="field-error" *ngIf="!this.redeemValues.controls[i].valid">O Valor a resgatar não pode ser maior que: {{ acao.getCalculatedValue() | currency:'R$':'symbol':'1.2-2' }}</p>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div class="card">
+    <div class="total-redeem-value">
+        <p><b>Valor Total do Resgate:</b> {{ this.totalValue | currency:'R$':'symbol':'1.2-2' }}</p>
+    </div>
+</div>
+
+<div class="buttons-holder">
+    <button mat-raised-button class="cancel-btn" color="accent" (click)="goToInvestment()">CANCELAR</button>
+    <button mat-raised-button class="redeem-btn" color="primary" (click)="redeem()">CONFIRMAR RESGATE</button>
+</div>

@@ -4,24 +4,17 @@
         <p>Objetivo</p>
         <p>Saldo total</p>
     </div>
-    <div class="content-row row-line">
-        <p>INVESTIMENTO I</p>
-        <p>Minha aposentadoria</p>
-        <p>39321.29</p>
-    </div>
-    <div class="content-row row-line">
-        <p>INVESTIMENTO II</p>
-        <p>Minha aposentadoria</p>
-        <p>5466.29</p>
-    </div>
-    <div class="content-row row-line">
-        <p>INVESTIMENTO III</p>
-        <p>Minha aposentadoria</p>
-        <p>5466.29</p>
-    </div>
-    <div class="content-row row-line">
-        <p>INVESTIMENTO IV</p>
-        <p>Minha aposentadoria</p>
-        <p>5466.29</p>
+    
+    <div *ngFor="let investment of investmentList" class="content-row row-line">
+        <div *ngIf="investment.isCarencia()" (click)="goToInvestment(investment)">
+            <p>{{ investment.getNome() }}</p>
+            <p>{{ investment.getObjetivo() }}</p>
+            <p>{{ investment.getSaldoTotal() | currency:'R$':'symbol':'1.2-2' }}</p>
+        </div>
+        <div *ngIf="!investment.isCarencia()" class="disabled">
+            <p>{{ investment.getNome() }}</p>
+            <p>{{ investment.getObjetivo() }}</p>
+            <p>{{ investment.getSaldoTotal() | currency:'R$':'symbol':'1.2-2' }}</p>
+        </div>
     </div>
 </div>

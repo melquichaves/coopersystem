@@ -15,7 +15,7 @@ export class InvestmentRepository {
     public async getInvestments(): Promise<InvestmentResponse> {
         try {
             const remoteGateway = this.remoteGatewayFactory.createDefaultRemoteGateway();
-            const data = await remoteGateway.get(new BackendUrl('/api/releasenotes'));
+            const data = await remoteGateway.get(new BackendUrl('ca4ec77d-b941-4477-8a7f-95d4daf7a653'));
             return this.investmentsParser.parse(data);
         }
         catch (error) {

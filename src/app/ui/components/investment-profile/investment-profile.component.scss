@@ -1,0 +1,46 @@
+
+.card {
+    background: #fff;
+    border: solid #b7b7b7 2px;
+    border-radius: 3px;
+    padding: 7px 24px;
+    width: fill-available;
+    display: inline-grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    
+    .item-holder {
+        .content {
+            display: flex;
+
+            .title-container {
+                align-self: center;
+                text-transform: uppercase;
+                p {
+                    margin: 0;
+                }
+                .title {
+                    font-size: 12px;
+                    color: #60696C;
+                }
+                .subtitle {
+                    font-size: 16px;
+                    color: #425C66;
+                }
+            }
+        }
+
+        mat-icon {
+            font-size: 35px;
+            width: 35px;
+            height: 30px;
+            margin-right: 10px;
+            margin-top: 3px;
+            color: #60696C;
+        }
+    }
+
+    .border-tick {
+        border-left: solid #B7B7B7 1px;
+        padding-left: 10px;
+    }
+}

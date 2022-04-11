@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <div (click)="close()">X</div>
+</div>
+<div class="message-holder" *ngIf="!data">
+    <h1>Resgate Efetuado com Sucesso</h1>
+    <button mat-raised-button class="redeem-btn" color="primary" (click)="close()">NOVO RESGATE</button>
+</div>
+
+<div class="message-holder" *ngIf="data">
+    <h1>DADOS INVÁLIDOS</h1>
+    <p>Você preencheu um ou mais campos com um valor acima do permitido</p>
+    <div class="reasons">
+        <p *ngFor="let stock of data.stocks">
+            <b>{{ stock.getNome() }}:</b> O valor a resgatar não pode ser maior que {{ stock.getCalculatedValue() | currency:'R$':'symbol':'1.2-2' }}
+        </p>
+    </div>
+    <button mat-raised-button class="redeem-btn" color="primary" (click)="close()">CORRIGIR</button>
+</div>

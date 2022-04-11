@@ -1,0 +1,30 @@
+.modal-header {
+    display: flex;
+    justify-content: end;
+
+    div {
+        color: #7F7F7F;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.message-holder {
+    width: 65vw;
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+
+    button {
+        margin-top: 20px;
+        background-color: #007AD3;
+        color: #fff;
+    }
+}
+
+.reasons {
+    text-align: center;
+    p {
+        margin: 0;
+    }
+}
