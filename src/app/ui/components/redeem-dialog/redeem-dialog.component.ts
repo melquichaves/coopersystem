@@ -24,6 +24,7 @@ export class RedeemDialogComponent implements OnInit {
   }
 
   public confirm(): void {
+    this.dialogRef.close();
     this.router.navigate(['/']);
   }
 
